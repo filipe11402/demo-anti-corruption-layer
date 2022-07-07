@@ -2,8 +2,8 @@
 
 namespace DemoAcl.Infrastructure.Repositories
 {
-    public interface IAmazonRepository
+    public interface IShopifyRepository
     {
-        AmazonProductDto GetProductById(string Id);
+        ShopifyProductDto GetProductById(string Id);
     }
 }

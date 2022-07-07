@@ -1,4 +1,4 @@
-﻿using DemoAcl.Infrastructure.Abstract;
+﻿using DemoAcl.Domain.Interfaces;
 using DemoAcl.Infrastructure.DTOs;
 using DemoAcl.Infrastructure.External;
 
@@ -6,25 +6,24 @@ namespace DemoAcl.Infrastructure.Repositories
 {
     public class AmazonRepository : IAmazonRepository
     {
-        private readonly ICountryPriceCalculator _calculator;
+        private readonly ICountryPriceCalculator<AmazonProduct> _calculator;
 
-        public AmazonRepository(ICountryPriceCalculator calculator)
+        public AmazonRepository(ICountryPriceCalculator<AmazonProduct> calculator)
         {
             _calculator = calculator;
         }
 
-        public ProductDto GetProductById(string Id)
+        public AmazonProductDto GetProductById(string Id)
         {
             AmazonProduct fetchedAmazonProduct = AmazonApi.GetProductById(Id);
 
-            double priceWithNoTax = _calculator.CalculatePriceWithoutTax(fetchedAmazonProduct);
+            var priceWithNoTax = _calculator.CalculatePriceWithoutTax(fetchedAmazonProduct);
 
-            var product = new ProductDto(
+            return new AmazonProductDto(
                 fetchedAmazonProduct.Id,
                 fetchedAmazonProduct.Name,
-                priceWithNoTax);
-
-            return product;
+                priceWithNoTax
+                );
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace DemoAcl.Infrastructure.DTOs
 {
-    public class ProductDto
+    public class ShopifyProductDto
     {
         public string Id { get; private set; }
 
@@ -8,11 +8,14 @@
 
         public double Price { get; private set; }
 
-        public ProductDto(string id, string name, double price)
+        public double Profit { get; private set; }
+
+        public ShopifyProductDto(string id, string name, double price, double profit)
         {
             Id = id;
             Name = name;
             Price = price;
+            Profit = profit;
         }
     }
 }

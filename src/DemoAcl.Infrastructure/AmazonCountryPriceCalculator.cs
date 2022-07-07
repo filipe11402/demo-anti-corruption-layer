@@ -1,9 +1,9 @@
-﻿using DemoAcl.Infrastructure.Abstract;
+﻿using DemoAcl.Domain.Interfaces;
 using DemoAcl.Infrastructure.External;
 
 namespace DemoAcl.Infrastructure
 {
-    public class CountryPriceCalculator : ICountryPriceCalculator
+    public class AmazonCountryPriceCalculator : ICountryPriceCalculator<AmazonProduct>
     {
         private const string Portugal = "Portugal";
         private const string Spain = "Spain";

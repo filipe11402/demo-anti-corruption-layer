@@ -6,9 +6,6 @@ namespace DemoAcl.Infrastructure.Repositories
 {
     public class AmazonRepository : IAmazonRepository
     {
-        private const string Portugal = "Portugal";
-        private const string Spain = "Spain";
-
         private readonly ICountryPriceCalculator _calculator;
 
         public AmazonRepository(ICountryPriceCalculator calculator)

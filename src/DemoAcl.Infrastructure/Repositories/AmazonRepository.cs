@@ -17,6 +17,8 @@ namespace DemoAcl.Infrastructure.Repositories
         {
             AmazonProduct fetchedAmazonProduct = AmazonApi.GetProductById(Id);
 
+            if (fetchedAmazonProduct is null) { return null; }
+
             var priceWithNoTax = _calculator.CalculatePriceWithoutTax(fetchedAmazonProduct);
 
             return new AmazonProductDto(

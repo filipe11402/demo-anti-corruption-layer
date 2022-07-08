@@ -1,7 +1,7 @@
 ﻿using DemoAcl.Domain.Interfaces;
 using DemoAcl.Infrastructure.External;
 
-namespace DemoAcl.Infrastructure
+namespace DemoAcl.Infrastructure.Services
 {
     public class ShopifyProfitCalculator : IProfitCalculator<ShopifyProduct>
     {

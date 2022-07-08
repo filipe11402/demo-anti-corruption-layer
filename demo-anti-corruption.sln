@@ -10,7 +10,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoAcl.Domain", "src\DemoAcl.Domain\DemoAcl.Domain.csproj", "{962A4EAA-6CD6-4080-817F-0B90C2ABCB66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoAcl.Domain", "src\DemoAcl.Domain\DemoAcl.Domain.csproj", "{962A4EAA-6CD6-4080-817F-0B90C2ABCB66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoAcl.Application", "src\DemoAcl.Application\DemoAcl.Application.csproj", "{3DE4F9A5-DEFA-4F2A-BFD7-7FA8F6870F90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,10 @@ Global
 		{962A4EAA-6CD6-4080-817F-0B90C2ABCB66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{962A4EAA-6CD6-4080-817F-0B90C2ABCB66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{962A4EAA-6CD6-4080-817F-0B90C2ABCB66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DE4F9A5-DEFA-4F2A-BFD7-7FA8F6870F90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DE4F9A5-DEFA-4F2A-BFD7-7FA8F6870F90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DE4F9A5-DEFA-4F2A-BFD7-7FA8F6870F90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DE4F9A5-DEFA-4F2A-BFD7-7FA8F6870F90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

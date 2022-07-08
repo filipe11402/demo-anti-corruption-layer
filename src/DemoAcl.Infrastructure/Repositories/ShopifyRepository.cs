@@ -17,6 +17,8 @@ namespace DemoAcl.Infrastructure.Repositories
         {
             var shopifyProduct = ShopifyApi.GetProductById(Id);
 
+            if (shopifyProduct is null) { return null; }
+
             var totalProfit = _profitCalculator.CalculateProfit(shopifyProduct);
 
             return new ShopifyProductDto(

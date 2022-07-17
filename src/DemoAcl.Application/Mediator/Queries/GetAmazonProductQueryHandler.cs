@@ -1,10 +1,11 @@
 ﻿using DemoAcl.Infrastructure.DTOs;
 using DemoAcl.Infrastructure.Repositories;
+using ErrorOr;
 using MediatR;
 
 namespace DemoAcl.Application.Mediator.Queries
 {
-    public class GetAmazonProductQueryHandler : IRequestHandler<GetAmazonProductQuery, AmazonProductDto>
+    public class GetAmazonProductQueryHandler : IRequestHandler<GetAmazonProductQuery, ErrorOr<AmazonProductDto>>
     {
         private readonly IAmazonRepository _amazonRepository;
 
@@ -13,7 +14,7 @@ namespace DemoAcl.Application.Mediator.Queries
             _amazonRepository = amazonRepository;
         }
 
-        public Task<AmazonProductDto> Handle(GetAmazonProductQuery request, CancellationToken cancellationToken)
+        public Task<ErrorOr<AmazonProductDto>> Handle(GetAmazonProductQuery request, CancellationToken cancellationToken)
         {
             return  Task.FromResult(_amazonRepository.GetProductById(request.Id));
         }

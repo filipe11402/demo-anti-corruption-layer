@@ -1,6 +1,8 @@
 ﻿using DemoAcl.Domain.Interfaces;
 using DemoAcl.Infrastructure.DTOs;
+using DemoAcl.Infrastructure.Enums;
 using DemoAcl.Infrastructure.External;
+using ErrorOr;
 
 namespace DemoAcl.Infrastructure.Repositories
 {
@@ -13,11 +15,11 @@ namespace DemoAcl.Infrastructure.Repositories
             _profitCalculator = profitCalculator;
         }
 
-        public ShopifyProductDto GetProductById(string Id)
+        public ErrorOr<ShopifyProductDto> GetProductById(string Id)
         {
             var shopifyProduct = ShopifyApi.GetProductById(Id);
 
-            if (shopifyProduct is null) { return null; }
+            if (shopifyProduct is null) { return Error.NotFound(description: ExternalServiceErrorEnum.Generic.ToString()); }
 
             var totalProfit = _profitCalculator.CalculateProfit(shopifyProduct);
 

@@ -1,4 +1,5 @@
 ﻿using DemoAcl.Infrastructure.DTOs;
+using ErrorOr;
 
 namespace DemoAcl.Infrastructure.Repositories
 {
@@ -7,6 +8,6 @@ namespace DemoAcl.Infrastructure.Repositories
     /// </summary>
     public interface IShopifyRepository
     {
-        ShopifyProductDto GetProductById(string Id);
+        ErrorOr<ShopifyProductDto> GetProductById(string Id);
     }
 }

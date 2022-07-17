@@ -1,4 +1,5 @@
 ﻿using DemoAcl.Infrastructure.DTOs;
+using ErrorOr;
 
 namespace DemoAcl.Infrastructure.Repositories
 {
@@ -7,6 +8,6 @@ namespace DemoAcl.Infrastructure.Repositories
     /// </summary>
     public interface IAmazonRepository
     {
-        AmazonProductDto GetProductById(string Id);
+        ErrorOr<AmazonProductDto> GetProductById(string Id);
     }
 }

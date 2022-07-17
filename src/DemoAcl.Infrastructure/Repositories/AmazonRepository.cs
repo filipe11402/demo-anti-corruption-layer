@@ -1,6 +1,8 @@
 ﻿using DemoAcl.Domain.Interfaces;
 using DemoAcl.Infrastructure.DTOs;
+using DemoAcl.Infrastructure.Enums;
 using DemoAcl.Infrastructure.External;
+using ErrorOr;
 
 namespace DemoAcl.Infrastructure.Repositories
 {
@@ -13,11 +15,11 @@ namespace DemoAcl.Infrastructure.Repositories
             _calculator = calculator;
         }
 
-        public AmazonProductDto GetProductById(string Id)
+        public ErrorOr<AmazonProductDto> GetProductById(string Id)
         {
             AmazonProduct fetchedAmazonProduct = AmazonApi.GetProductById(Id);
 
-            if (fetchedAmazonProduct is null) { return null; }
+            if (fetchedAmazonProduct is null) { return Error.NotFound(description: ExternalServiceErrorEnum.Generic.ToString()); }
 
             var priceWithNoTax = _calculator.CalculatePriceWithoutTax(fetchedAmazonProduct);
 

@@ -21,12 +21,12 @@ namespace DemoAcl.Application.Controllers
         {
             var product = await _mediator.Send(new GetAmazonProductQuery(productId));
 
-            if (product is null) 
+            if (product.IsError) 
             {
                 return StatusCode(StatusCodes.Status404NotFound);
             }
 
-            return StatusCode(StatusCodes.Status200OK, product);
+            return StatusCode(StatusCodes.Status200OK, product.Value);
         }
     }
 }
